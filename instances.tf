@@ -7,7 +7,7 @@ resource "google_compute_instance" "kubernetes-node-master" {
   boot_disk {
     initialize_params {
       image = "ubuntu-os-pro-cloud/ubuntu-pro-1804-lts"
-      size  = "10"
+      size  = "50"
       type  = "pd-standard"
 
     }
@@ -44,7 +44,7 @@ resource "google_compute_instance" "kubernetes-nodes-slaves" {
   boot_disk {
     initialize_params {
       image = "ubuntu-os-pro-cloud/ubuntu-pro-1804-lts"
-      size  = "10"
+      size  = "50"
       type  = "pd-standard"
 
     }
