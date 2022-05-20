@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 ###Update the system:
 sudo apt-get update -y
 ### Turn off Swap
@@ -27,7 +29,3 @@ EOF
 sudo systemctl restart containerd
 ### Initiate Kubeadm and configure Master
 sudo kubeadm init --apiserver-advertise-address $(hostname -i)
-### To start using your cluster, you need to run the following
-sudo mkdir -p $HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-### Continue:
-sudo chown $(id -u):$(id -g) $HOME/.kube/config

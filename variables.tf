@@ -1,5 +1,6 @@
 variable "project-id" {
-  default = "scenic-energy-350416"
+  description = "my project ID"
+  default     = "scenic-energy-350416"
 
 }
 
