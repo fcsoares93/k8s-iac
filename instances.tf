@@ -25,7 +25,7 @@ resource "google_compute_instance" "kubernetes-node-master" {
     #     }
   }
 
-  metadata_startup_script = file("./startup-script.sh")
+  metadata_startup_script = file("./startup-script-master.sh")
 
   service_account {
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.

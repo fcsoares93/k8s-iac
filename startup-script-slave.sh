@@ -20,6 +20,8 @@ sudo apt-get update -y
 sudo apt-get autoremove -y
 ###Kubernetes Installation Tools
 sudo apt-get install -y kubeadm kubelet kubectl
+### Start Containerd
+sudo systemctl start containerd
 ### Fix kubelet
 cat > /etc/containerd/config.toml <<EOF
 [plugins."io.containerd.grpc.v1.cri"]

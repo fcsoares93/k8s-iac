@@ -20,6 +20,8 @@ sudo apt-get update -y
 sudo apt-get autoremove -y
 ###Kubernetes Installation Tools
 sudo apt-get install -y kubeadm kubelet kubectl
+### Start Containerd
+sudo systemctl start containerd
 ### Fix kubelet
 cat > /etc/containerd/config.toml <<EOF
 [plugins."io.containerd.grpc.v1.cri"]
@@ -29,3 +31,12 @@ EOF
 sudo systemctl restart containerd
 ### Initiate Kubeadm and configure Master
 sudo kubeadm init --apiserver-advertise-address $(hostname -i)
+### Commands to start a cluster 1
+# mkdir -p $HOME/.kube
+# # ### Commands to start a cluster 2
+# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# ### Commands to start a cluster 3
+# sudo chown $(id -u):$(id -g) $HOME/.kube/config
+### Add pod network On
+# kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+EOF
